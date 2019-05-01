@@ -127,10 +127,68 @@ function findDeficientNumbers(n) {
   return numbers;
 }
 
+/**
+ * Sort lexically per charater.
+ * @param {String} str
+ */
+function sortLexicalPerChar(str) {
+  var charCodeSet = new Map();
+  var charCodeSetDuplicates = new Map();
+  var r = "",
+    high = -1,
+    low = Number.MAX_VALUE;
+
+  for (var i = 0; i < str.length; i++) {
+    var iCharCode = str.charCodeAt(i);
+    charCodeSet.set(iCharCode, str.charAt(i));
+    if (charCodeSetDuplicates.has(iCharCode)) {
+      charCodeSetDuplicates.set(
+        iCharCode,
+        charCodeSetDuplicates.get(iCharCode) + 1
+      );
+    } else {
+      charCodeSetDuplicates.set(iCharCode, 1);
+    }
+    high = high <= iCharCode ? iCharCode : high;
+    low = low < iCharCode ? low : iCharCode;
+  }
+
+  for (var j = low; j <= high; j++) {
+    if (charCodeSet.has(j)) {
+      while (charCodeSetDuplicates.get(j) > 0) {
+        r += charCodeSet.get(j);
+        charCodeSetDuplicates.set(j, charCodeSetDuplicates.get(j) - 1);
+      }
+    }
+  }
+  return r;
+}
+
+/**
+ * Factorial with memoization if used recursively.
+ * @param {Number} n
+ * @param {Set} memo
+ * @returns {Set} factorial(n).getAll - return all factorials from 0 to n
+ * @returns {Number} factorial(n).get - returns the factoral of n
+ */
+function factorial(n, memo = new Map()) {
+  if (n <= 1) {
+    return 1;
+  }
+  if (memo.has(n)) {
+    return memo.get(n);
+  }
+  memo.set(n, n * factorial(n - 1, memo));
+
+  return memo.get(n);
+}
+
 module.exports = {
   findDivisors,
   findPerfectNumbers,
   findAbundantNumbers,
   findDeficientNumbers,
+  sortLexicalPerChar,
+  factorial,
   NUMBER_NAME
 };
