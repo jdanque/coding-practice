@@ -10,27 +10,28 @@ As 12 is the smallest abundant number, 1 + 2 + 3 + 4 + 6 = 16, the smallest numb
 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
  */
-var utils = require('../utils');
+var utils = require("../utils");
 
- function findNonAbundantSums(){
-    var abundantNumbers = utils.findAbundantNumbers(28123)
-    var abundantNumbersSet = new Set(abundantNumbers);
-    var total=0, isAbundantSum = false;
-    //as per description, all integers greater than 28123 can be 
-    //written as the sum of two abundant numbers.
-    for(var i = 1 ; i <= 28123; i++){
-        isAbundantSum = false;
-        for(var j= 0;j < abundantNumbers.length; j++){
-            if(abundantNumbersSet.has(i - abundantNumbers[j])){
-                isAbundantSum = true;
-                break;
-            }
-        }
-        if(!isAbundantSum){
-            total += i;
-        }
+function findNonAbundantSums() {
+  var abundantNumbers = utils.findAbundantNumbers(28123);
+  var abundantNumbersSet = new Set(abundantNumbers);
+  var total = 0,
+    isAbundantSum = false;
+  //as per description, all integers greater than 28123 can be
+  //written as the sum of two abundant numbers.
+  for (var i = 1; i <= 28123; i++) {
+    isAbundantSum = false;
+    for (var j = 0; j < abundantNumbers.length; j++) {
+      if (abundantNumbersSet.has(i - abundantNumbers[j])) {
+        isAbundantSum = true;
+        break;
+      }
     }
-    return total;
- }
+    if (!isAbundantSum) {
+      total += i;
+    }
+  }
+  return total;
+}
 
- console.log(findNonAbundantSums());
+console.log(findNonAbundantSums());
