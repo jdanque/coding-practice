@@ -73,6 +73,7 @@ function findDivisors(n) {
     r.isDeficient = true;
   }
 
+  r.listOfDivisors.add(n);
   return r;
 }
 
@@ -219,7 +220,35 @@ function addStrings(a, b) {
   return res;
 }
 
-console.log(addStrings("13", "8"));
+/**
+ * Returns the prime factors of a number
+ * @param {Number} n
+ */
+function getPrimeFactors(n) {
+  var result = {
+    isPrime: true,
+    factors: []
+  };
+
+  while (n % 2 == 0) {
+    result.factors.push(2);
+    n /= 2;
+  }
+
+  for (var i = 3; i <= Math.sqrt(n); i += 2) {
+    while (n % i == 0) {
+      result.isPrime = false;
+      result.factors.push(i);
+      n /= i;
+    }
+  }
+
+  if (n > 2) {
+    result.factors.push(n);
+  }
+
+  return result;
+}
 
 module.exports = {
   findDivisors,
@@ -229,6 +258,7 @@ module.exports = {
   sortLexicalPerChar,
   factorial,
   fibonacci,
+  getPrimeFactors,
   addStrings,
   NUMBER_NAME
 };
