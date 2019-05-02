@@ -183,6 +183,44 @@ function factorial(n, memo = new Map()) {
   return memo.get(n);
 }
 
+/**
+ * Simple fibonacci generator
+ * @param {Number} n
+ * @param {Map} memo
+ */
+function fibonacci(n, memo = new Map()) {
+  if (memo.has(n)) return memo.get(n);
+  if (n <= 1) {
+    memo.set(n, n);
+    result = memo.get(n);
+  } else {
+    memo.set(n, fibonacci(n - 1, memo) + fibonacci(n - 2, memo));
+  }
+
+  result = memo.get(n);
+  return result;
+}
+
+/**
+ * Add two string numbers, could add a very large number
+ * @param {String} a
+ * @param {String} b
+ */
+function addStrings(a, b) {
+  let res = "",
+    c = 0;
+  a = a.split("");
+  b = b.split("");
+  while (a.length || b.length || c) {
+    c += ~~a.pop() + ~~b.pop();
+    res = (c % 10) + res;
+    c = c > 9;
+  }
+  return res;
+}
+
+console.log(addStrings("13", "8"));
+
 module.exports = {
   findDivisors,
   findPerfectNumbers,
@@ -190,5 +228,7 @@ module.exports = {
   findDeficientNumbers,
   sortLexicalPerChar,
   factorial,
+  fibonacci,
+  addStrings,
   NUMBER_NAME
 };
