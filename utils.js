@@ -203,24 +203,6 @@ function fibonacci(n, memo = new Map()) {
 }
 
 /**
- * Add two string numbers, could add a very large number
- * @param {String} a
- * @param {String} b
- */
-function addStrings(a, b) {
-  let res = "",
-    c = 0;
-  a = a.split("");
-  b = b.split("");
-  while (a.length || b.length || c) {
-    c += ~~a.pop() + ~~b.pop();
-    res = (c % 10) + res;
-    c = c > 9;
-  }
-  return res;
-}
-
-/**
  * Returns the prime factors of a number
  * @param {Number} n
  */
@@ -259,6 +241,5 @@ module.exports = {
   factorial,
   fibonacci,
   getPrimeFactors,
-  addStrings,
   NUMBER_NAME
 };
