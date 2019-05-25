@@ -1,4 +1,4 @@
-/**
+package problems; /**
  * Quadratic primes
  * Problem 27
  * Euler discovered the remarkable quadratic formula:
@@ -23,6 +23,8 @@
  */
 
 import java.math.BigInteger;
+import java.util.HashSet;
+import java.util.Set;
 
 class problem27{
 
