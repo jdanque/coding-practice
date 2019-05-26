@@ -1,4 +1,4 @@
-package problems; /**
+/**
  * 1000-digit Fibonacci number
  * Problem 25
  * The Fibonacci sequence is defined by the recurrence relation:
