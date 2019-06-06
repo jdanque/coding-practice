@@ -1,5 +1,8 @@
 package arrays_and_strings;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Chapter 9: Interview Questions
  * Topic: Arrays and Strings
@@ -8,15 +11,7 @@ package arrays_and_strings;
  * where each pixel in the image is 4 bytes,
  * write a method to rotate the image by 90 degrees.
  * Can you do this in place?
- */
-
-import java.util.HashMap;
-import java.util.Map;
-
-/**
- * Chapter 9: Interview Questions
- * Topic: Arrays and Strings
- * Problem:
+ *
  * Notes: since it's not clear whether to implement a rotate to right or left 90deg
  * I'll do both. And it's not clear what the 4bytes is, but for this exercise
  * I'll just go with a 2d int array. (32bit = 4bytes),
