@@ -1,8 +1,5 @@
 package arrays_and_strings;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Chapter 9: Interview Questions
  * Topic: Arrays and Strings
