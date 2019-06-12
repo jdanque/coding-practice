@@ -18,44 +18,4 @@ public class ReturnKthToLast {
         return curr.data;
     }
 
-    public static class SingleLinkedList<E>{
-
-        Node<E> head;
-        Node<E> tail;
-        int size;
-
-        public SingleLinkedList() {}
-
-        public void add(E e){
-            final Node<E> t = tail;
-            final Node<E> newNode = new Node<>(e, null);
-            tail = newNode;
-
-            if(t == null){
-                head = newNode;
-            }else{
-                t.next = newNode;
-            }
-
-            size++;
-        }
-
-        public void addAll(E... elements) {
-            for(E e : elements){
-                this.add(e);
-            }
-        }
-
-        static class Node<E>{
-            E data;
-            Node<E> next;
-
-            public Node(E elem, Node<E> next) {
-                this.data = elem;
-                this.next = next;
-            }
-        }
-
-    }
-
 }

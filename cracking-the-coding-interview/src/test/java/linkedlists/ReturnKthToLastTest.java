@@ -16,7 +16,7 @@ public class ReturnKthToLastTest {
 
     @Test
     public void getElementFromTail_withIndex_souldReturnCorretElement() {
-        ReturnKthToLast.SingleLinkedList<Integer> linkedList = new ReturnKthToLast.SingleLinkedList<>();
+        SingleLinkedList<Integer> linkedList = new SingleLinkedList<>();
         linkedList.addAll(1,2,3,4,5);
 
         assertEquals(new Integer(4), underTest.getElementFromTail(linkedList,2));
