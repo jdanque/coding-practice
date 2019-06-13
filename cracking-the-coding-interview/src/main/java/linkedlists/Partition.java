@@ -26,7 +26,7 @@ public class Partition {
         SingleLinkedList.Node<E> tail = node;
         while(node != null){
             SingleLinkedList.Node<E> next = node.next;
-            if((int) node.data < x){
+            if((Integer) node.data < x){
                 node.next = head;
                 head = node;
             }else {
